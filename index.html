@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINEMA MAX - Sri Lanka's Premier Cinema Booking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-icon">🎬</span>
+                <span class="logo-text">CINEMA<span class="logo-accent">MAX</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-page="home">Home</a>
+                <a href="#movies" class="nav-link" data-page="movies">Movies</a>
+                <a href="#cinemas" class="nav-link" data-page="cinemas">Cinemas</a>
+                <a href="#offers" class="nav-link" data-page="offers">Offers</a>
+                <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+                    <span class="theme-icon-dark">☀️</span>
+                    <span class="theme-icon-light">🌙</span>
+                </div>
+                <button class="nav-login-btn" id="navLoginBtn" onclick="navigate('login')" style="display:none">🔐 Sign In</button>
+                <div class="search-box" id="navSearch">
+                    <input type="text" placeholder="Search movies..." id="searchInput">
+                    <button class="search-btn" onclick="handleSearch()">🔍</button>
+                </div>
+                <div class="nav-notifications" onclick="toggleNotifications()">
+                    <span class="notif-icon">🔔</span>
+                    <span class="notif-badge" id="notifBadge">2</span>
+                </div>
+                <div class="nav-user" id="navUser" onclick="toggleUserMenu()">
+                    <div class="user-avatar" id="userAvatar">C</div>
+                    <span class="user-name" id="userName">Chamuditha</span>
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#dashboard" onclick="closeUserMenu()">📋 My Dashboard</a>
+                    <a href="#admin" onclick="closeUserMenu()">🧑‍💼 Admin Panel</a>
+                    <a href="#watchlist" onclick="closeUserMenu()">❤️ My Watchlist</a>
+                    <a href="#history" onclick="closeUserMenu()">📜 Booking History</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#login" onclick="closeUserMenu(); handleLogout()">🚪 Logout</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <div class="notifications-panel" id="notificationsPanel">
+        <div class="notif-header">
+            <h3>Notifications</h3>
+            <button onclick="markAllRead()">Mark all read</button>
+        </div>
+        <div id="notifList"></div>
+    </div>
+
+    <main id="app"></main>
+
+    <footer id="mainFooter">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>🎬 CINEMA<span class="logo-accent">MAX</span></h4>
+                <p>Sri Lanka's premier cinema experience. Enjoy the magic of movies with state-of-the-art technology and comfort.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#movies">Movies</a>
+                <a href="#cinemas">Cinemas</a>
+                <a href="#offers">Offers</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Cinema Locations</h4>
+                <a href="#cinemas">Colombo</a>
+                <a href="#cinemas">Kandy</a>
+                <a href="#cinemas">Galle</a>
+                <a href="#cinemas">Negombo</a>
+                <a href="#cinemas">Jaffna</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <div class="footer-contact">
+                    <p class="footer-contact-item">📞 <span>+94 11 234 5678</span></p>
+                    <p class="footer-contact-item">📧 <span>info@cinemamax.lk</span></p>
+                    <p class="footer-contact-item">🌐 <span>www.cinemamax.lk</span></p>
+                    <p class="footer-contact-item">📍 <span>Colombo, Sri Lanka 🇱🇰</span></p>
+                </div>
+                <div class="footer-socials">
+                    <a href="#" title="Facebook" aria-label="Facebook">📘</a>
+                    <a href="#" title="Instagram" aria-label="Instagram">📸</a>
+                    <a href="#" title="X / Twitter" aria-label="X / Twitter">𝕏</a>
+                    <a href="#" title="YouTube" aria-label="YouTube">▶️</a>
+                    <a href="#" title="TikTok" aria-label="TikTok">🎵</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CinemaMax. All rights reserved. | LKR Pricing | Supporting Sinhala, Tamil & English</p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+    <div class="modal" id="modal"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
